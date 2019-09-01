@@ -11,10 +11,10 @@ class Navigation extends Component {
   render() {
     return (
       <HashRouter>
-        <Navbar bg="light" expand="lg" style={{height: window.innerHeight*.08}}>
+        <Navbar bg="light" expand="lg" fixed="top" style={{height: window.innerHeight*.08}}>
           <Navbar.Brand href="#/">Tanay Sonthalia</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav navbar-fixed">
             <Nav className="ml-auto">
               <Nav.Link href="#/">Home</Nav.Link>
               <Nav.Link href="#programming">Programming</Nav.Link>

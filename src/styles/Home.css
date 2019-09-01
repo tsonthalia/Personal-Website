@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
 
 body {
   margin: 0;
@@ -7,11 +8,32 @@ body {
 
 .header {
   width: 100vw;
+  height: 100vh;
+  font-family: 'Teko', sans-serif;
+}
+
+.section {
+  width: 100vw;
   height: 92vh;
+  font-family: 'Teko', sans-serif;
+}
+
+.section p {
+  font-size: 4vh;
+  font-family: 'Livvic', sans-serif;
+}
+
+.inverted {
+  background-color: #47AEE3;
+  color: white;
+}
+
+.leftCol {
+  width: 50vw;
 }
 
 .particles {
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
@@ -19,25 +41,35 @@ body {
   z-index: -1;
 }
 
-.header #personalPic {
+#personalPic {
   width: 70vh;
   height: 70vh;
-  margin: 11vh;
+  margin-left: 11vh;
+  margin-top: 19vh;
   border-radius: 50%;
 }
 
-.header .basicInfo {
+.basicInfo {
   margin-left: 45vw;
   margin-top: -70vh;
   text-align: center;
-  font-family: 'Teko', sans-serif;
 }
 
-.header .basicInfo h1 {
+.basicInfo h1 {
   font-size: 17vh;
 }
 
-.header .basicInfo h3 {
+.basicInfo h3 {
   font-size: 5vh;
   margin-top: -3vh;
+}
+
+.aboutMe h1 {
+  font-size: 10vh;
+  padding-left: 3vh;
+  padding-top: 3vh;
+}
+
+.aboutMe p {
+  padding-left: 3vh;
 }

@@ -94,7 +94,12 @@ class Home extends Component {
               <h3>Developer • Engineer • Tinkerer</h3>
             </div>
           </div>
-          <div></div>
+          <div className="section inverted aboutMe">
+            <h1>About Me</h1>
+            <div className="leftCol">
+              <p>My name is Tanay Sonthalia and I am currently a Senior at Mountain View High School. In my free time, I work on a lot of different projects by combining programming and engineering. You can check out some of them in my Programming or Engineering page. I also teach different classes at OracleOpenWorld, CoderDojo, TechLab, and more. Tutorials for those classes can be found in the Tutorials page.</p>
+            </div>
+          </div>
         </div>
       );
     } else {
