@@ -16,10 +16,11 @@ body {
   width: 100vw;
   height: 92vh;
   font-family: 'Teko', sans-serif;
+  position: relative;
 }
 
 .section p {
-  font-size: 4vh;
+  font-size: 3vh;
   font-family: 'Livvic', sans-serif;
 }
 
@@ -29,7 +30,12 @@ body {
 }
 
 .leftCol {
-  width: 50vw;
+  display: inline-block;
+  width: 40vw;
+}
+
+.rightCol {
+  display: inline;
 }
 
 .particles {
@@ -50,8 +56,11 @@ body {
 }
 
 .basicInfo {
-  margin-left: 45vw;
-  margin-top: -70vh;
+  position: absolute;
+  vertical-align: middle;
+  top: 50vh;
+  transform: translate(0%, -50%);
+  margin-left: 50vw;
   text-align: center;
 }
 
@@ -72,4 +81,10 @@ body {
 
 .aboutMe p {
   padding-left: 3vh;
+}
+
+#aboutMePic {
+  float: right;
+  width: 46vw;
+  margin-right: 7vw;
 }
