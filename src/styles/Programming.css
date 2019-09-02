@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 .page {
-  margin-top: 8vh;
+  margin: 8vh;
+  margin-top: 10vh;
 }
 
 .pageTitle {
   font-family: 'Teko', sans-serif;
+  font-size: 7vw;
 }
