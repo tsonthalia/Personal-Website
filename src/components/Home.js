@@ -23,7 +23,7 @@ const particlesOptions = {
         },
         "move": {
           "enable": true,
-          "speed": 3,
+          "speed": 5,
           "direction": "none",
           "random": false,
           "straight": false,
@@ -117,9 +117,9 @@ class Home extends Component {
             <div className="basicInfo">
               <h1>Tanay Sonthalia</h1>
               <h3>Developer • Engineer • Tinkerer</h3>
-              <SocialIcon url="https://github.com/tsonthalia" bgColor="#000000"/>
-              <SocialIcon url="https://www.linkedin.com/in/tanaysonthalia" style={{marginLeft: 1+"vw"}}/>
-              <SocialIcon url="https://twitter.com/SonthaliaTanay" style={{marginLeft: 1+"vw"}}/>
+              <SocialIcon url="https://github.com/tsonthalia" bgColor="#000000" target="_blank"/>
+              <SocialIcon url="https://www.linkedin.com/in/tanaysonthalia" target="_blank" style={{marginLeft: 1+"vw"}}/>
+              <SocialIcon url="https://twitter.com/SonthaliaTanay" target="_blank" style={{marginLeft: 1+"vw"}}/>
             </div>
           </div>
           <div className="section inverted aboutMe">

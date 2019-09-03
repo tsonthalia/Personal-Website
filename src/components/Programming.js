@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import firebase from "./firebase.js";
-import "../styles/Programming.css";
+import "../styles/Tabs.css";
 
-import {CardColumns, Card} from "react-bootstrap";
+import {CardColumns, Card, Button} from "react-bootstrap";
 
 class Programming extends Component {
   constructor(props) {
@@ -21,13 +21,50 @@ class Programming extends Component {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.data().name);
-            self.state.cards.push(<Card key={doc.data().name} bg="light" className="text-center">
-                          <Card.Header>{doc.data().name}</Card.Header>
-                          <Card.Img variant="top" src={doc.data().url} />
-                          <Card.Body>
-                            <Card.Text>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</Card.Text>
-                          </Card.Body>
-                        </Card>);
+            if (doc.data().github !== undefined && doc.data().website !== undefined) {
+              self.state.cards.push(<Card key={doc.data().name} bg="light" className="text-center card">
+                                      <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
+                                      <Card.Img variant="top" src={doc.data().url} />
+                                      <Card.Body>
+                                        <Card.Text className='cardText'>{doc.data().description}</Card.Text>
+                                      </Card.Body>
+                                      <Card.Footer className="text-muted">
+                                        <Button variant="primary" href={doc.data().github} target="_blank">GitHub</Button>
+                                        <Button variant="primary" href={doc.data().website} target="_blank" style={{marginLeft: 1+"vw"}}>Website</Button>
+                                      </Card.Footer>
+                                    </Card>);
+            } else if (doc.data().github !== undefined) {
+              self.state.cards.push(<Card key={doc.data().name} bg="light" className="text-center card">
+                                      <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
+                                      <Card.Img variant="top" src={doc.data().url} />
+                                      <Card.Body>
+                                        <Card.Text className='cardText'>{doc.data().description}</Card.Text>
+                                      </Card.Body>
+                                      <Card.Footer className="text-muted">
+                                        <Button variant="primary" href={doc.data().github} target="_blank">GitHub</Button>
+                                      </Card.Footer>
+                                    </Card>);
+            } else if (doc.data().website !== undefined) {
+              self.state.cards.push(<Card key={doc.data().name} bg="light" className="text-center card">
+                                      <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
+                                      <Card.Img variant="top" src={doc.data().url} />
+                                      <Card.Body>
+                                        <Card.Text>{doc.data().description}</Card.Text>
+                                      </Card.Body>
+                                      <Card.Footer className="text-muted">
+                                        <Button variant="primary" href={doc.data().website} target="_blank">Website</Button>
+                                      </Card.Footer>
+                                    </Card>);
+            } else {
+              self.state.cards.push(<Card key={doc.data().name} bg="light" className="text-center card">
+                                      <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
+                                      <Card.Img variant="top" src={doc.data().url} />
+                                      <Card.Body>
+                                        <Card.Text className='cardText'>{doc.data().description}</Card.Text>
+                                      </Card.Body>
+                                    </Card>);
+            }
+
         });
         self.setState({cards: self.state.cards});
     });

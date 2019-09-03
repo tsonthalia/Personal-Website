@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
 
 .page {
   margin: 8vh;
@@ -8,4 +9,13 @@
 .pageTitle {
   font-family: 'Teko', sans-serif;
   font-size: 7vw;
+}
+
+.card {
+  font-family: 'Livvic', sans-serif;
+}
+
+.cardHeader {
+  font-weight: bold;
+  font-size: 125%;
 }
