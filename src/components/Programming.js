@@ -17,7 +17,7 @@ class Programming extends Component {
     let self = this;
     var db = firebase.firestore();
 
-    db.collection("programming").get().then(function(querySnapshot) {
+    db.collection("programming").orderBy("date", "desc").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.data().name);
