@@ -24,7 +24,6 @@ class Tutorials extends Component {
             if (doc.data().open !== undefined) {
               self.state.cards.push(<Card key={doc.data().name} bg="light" className="text-center card">
                                       <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
-                                      <Card.Img variant="top" src={doc.data().url} />
                                       <Card.Body>
                                         <Card.Text className='cardText'>{doc.data().description}</Card.Text>
                                       </Card.Body>
@@ -35,7 +34,6 @@ class Tutorials extends Component {
             } else {
               self.state.cards.push(<Card key={doc.data().name} bg="light" className="text-center card">
                                       <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
-                                      <Card.Img variant="top" src={doc.data().url} />
                                       <Card.Body>
                                         <Card.Text className='cardText'>{doc.data().description}</Card.Text>
                                       </Card.Body>

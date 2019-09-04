@@ -73,14 +73,13 @@ body {
   margin-top: -3vh;
 }
 
-.aboutMe h1 {
-  font-size: 10vh;
+.aboutMe {
   padding-left: 3vh;
-  padding-top: 3vh;
 }
 
-.aboutMe p {
-  padding-left: 3vh;
+.aboutMe h1 {
+  font-size: 10vh;
+  padding-top: 3vh;
 }
 
 #aboutMePic {
