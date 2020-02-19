@@ -14,19 +14,20 @@ body {
 
 .section {
   width: 100vw;
-  height: 92vh;
+  min-height: 92vh;
   font-family: 'Teko', sans-serif;
   position: relative;
+  padding-left: 3vh;
+  padding-right: 3vh;
 }
 
-.section p {
-  font-size: 3vh;
-  font-family: 'Livvic', sans-serif;
+.section h1 {
+  font-size: 10vh;
+  padding-top: 3vh;
 }
 
 .inverted {
   background-color: #47AEE3;
-  color: white;
 }
 
 .leftCol {
@@ -74,16 +75,44 @@ body {
 }
 
 .aboutMe {
-  padding-left: 3vh;
+  color: white;
 }
 
-.aboutMe h1 {
-  font-size: 10vh;
-  padding-top: 3vh;
+.aboutMe p {
+  font-size: 3vh;
+  font-family: 'Livvic', sans-serif;
 }
 
 #aboutMePic {
   float: right;
   width: 46vw;
   margin-right: 7vw;
+}
+
+.favoriteProjects h1 {
+  color: white;
+}
+
+CardColumns .pageTitle {
+  font-family: 'Teko', sans-serif;
+}
+
+CardColumns .cardText {
+  font-size: 1.3vw;
+}
+
+CardColumns .card {
+  font-family: 'Livvic', sans-serif;
+}
+
+CardColumns .cardHeader {
+  font-weight: bold;
+}
+
+footer {
+  position: absolute;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.5vw;
+  text-align: "center";
+  bottom: -5vh;
 }

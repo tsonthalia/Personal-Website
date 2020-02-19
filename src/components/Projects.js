@@ -4,24 +4,21 @@ import "../styles/Tabs.css";
 
 import {CardColumns, Card, Button} from "react-bootstrap";
 
-class Tutorials extends Component {
+class Projects extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: [],
-      urls: [],
       cards: [],
     }
 
     let self = this;
     var db = firebase.firestore();
 
-    db.collection("tutorials").orderBy("date", "desc").get().then(function(querySnapshot) {
+    db.collection("projects").orderBy("date", "desc").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             // console.log(doc.data().name);
-            //
             // console.log(Object.keys(doc.data()));
             var keys = Object.keys(doc.data())
             var newKeys = []
@@ -43,6 +40,7 @@ class Tutorials extends Component {
                                       ))}
                                     </Card.Footer>
                                   </Card>);
+
         });
         self.setState({cards: self.state.cards});
     });
@@ -51,7 +49,7 @@ class Tutorials extends Component {
   render() {
     return (
       <div className="page">
-        <h1 className="pageTitle">Tutorials</h1>
+        <h1 className="pageTitle">Projects</h1>
         <CardColumns>
           {this.state.cards.map((card, index) => (
               card
@@ -63,4 +61,4 @@ class Tutorials extends Component {
   }
 }
 
-export default Tutorials;
+export default Projects;

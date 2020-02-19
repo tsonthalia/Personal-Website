@@ -3,11 +3,15 @@ import {HashRouter, Route} from "react-router-dom";
 import {Navbar, Nav} from "react-bootstrap";
 
 import Home from "./Home";
-import Programming from "./Programming";
-import Engineering from "./Engineering";
+import Projects from "./Projects";
+// import Programming from "./Programming";
+// import Engineering from "./Engineering";
+import CommunityService from "./CommunityService";
 import Tutorials from "./Tutorials";
 
 import firebase from './firebase.js';
+
+import '../styles/Navigation.css';
 
 class Navigation extends Component {
   constructor(props) {
@@ -58,8 +62,8 @@ class Navigation extends Component {
           <Navbar.Collapse id="basic-navbar-nav navbar-fixed">
             <Nav className="ml-auto">
               <Nav.Link href="#/">Home</Nav.Link>
-              <Nav.Link href="#programming">Programming</Nav.Link>
-              <Nav.Link href="#engineering">Engineering</Nav.Link>
+              <Nav.Link href="#projects">Projects</Nav.Link>
+              <Nav.Link href="#communityservice">Community Service</Nav.Link>
               <Nav.Link href="#tutorials">Tutorials</Nav.Link>
               <Nav.Link href={this.state.resume} target="_blank">Resume</Nav.Link>
             </Nav>
@@ -67,8 +71,8 @@ class Navigation extends Component {
         </Navbar>
 
         <Route exact path="/" component={Home}/>
-        <Route path="/programming" component={Programming}/>
-        <Route path="/engineering" component={Engineering}/>
+        <Route path="/projects" component={Projects}/>
+        <Route path="/communityservice" component={CommunityService}/>
         <Route path="/tutorials" component={Tutorials}/>
       </HashRouter>
     );
