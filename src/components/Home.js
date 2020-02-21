@@ -207,7 +207,6 @@ class Home extends Component {
               <SocialIcon url="https://www.linkedin.com/in/tanaysonthalia" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "LinkedIn")}/>
               <SocialIcon url="https://twitter.com/SonthaliaTanay" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "Twitter")}/>
               <SocialIcon url="https://www.instagram.com/tanay.sonthalia/?hl=en" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "Instagram")}/>
-
             </div>
           </div>
 
