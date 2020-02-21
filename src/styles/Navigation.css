@@ -9,9 +9,14 @@
 
 .navbar-collapse {
   background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%) !important; /* override background image gradient w/ flat color */
-  margin-left: auto !important;
-  margin-left: -2vw !important;
-  margin-right: -2vw !important;
-  padding-left: 2vw !important;
-  padding-right: 2vw !important;
+}
+
+@media only screen and (max-width: 900px) {
+  .navbar-collapse {
+    margin-left: auto !important;
+    margin-left: -2vw !important;
+    margin-right: -2vw !important;
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+  }
 }
