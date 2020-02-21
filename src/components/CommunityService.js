@@ -39,13 +39,18 @@ class CommunityService extends Component {
                                     </Card.Body>
                                     <Card.Footer className="text-muted">
                                       {newKeys.map((key, index) => (
-                                          <Button variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}}>{key}</Button>
+                                          <Button key={index} variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}} onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
                                       ))}
                                     </Card.Footer>
                                   </Card>);
         });
         self.setState({cards: self.state.cards});
     });
+  }
+
+  logClick(key, name) {
+    const defaultAnalytics = firebase.analytics();
+    defaultAnalytics.logEvent(key + " - " + name);
   }
 
   render() {

@@ -29,7 +29,7 @@ class Navigation extends Component {
 
     let self = this;
 
-    storageRef.child("resume.pdf").getDownloadURL().then(function(url) {
+    storageRef.child("Tanay Sonthalia Resume.pdf").getDownloadURL().then(function(url) {
       self.setState({resume: url});
     }).catch(function(error) {
       // eslint-disable-next-line
@@ -53,6 +53,11 @@ class Navigation extends Component {
     });
   }
 
+  logClick() {
+    const defaultAnalytics = firebase.analytics();
+    defaultAnalytics.logEvent("Open - Resume");
+  }
+
   render() {
     return (
       <HashRouter>
@@ -65,7 +70,7 @@ class Navigation extends Component {
               <Nav.Link href="#projects">Projects</Nav.Link>
               <Nav.Link href="#communityservice">Community Service</Nav.Link>
               <Nav.Link href="#tutorials">Tutorials</Nav.Link>
-              <Nav.Link href={this.state.resume} target="_blank">Resume</Nav.Link>
+              <Nav.Link href={this.state.resume} target="_blank" onClick={this.logClick}>Resume</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

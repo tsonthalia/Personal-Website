@@ -7,8 +7,11 @@ const config = {
   projectId: "personal-website-781b7",
   storageBucket: "personal-website-781b7.appspot.com",
   messagingSenderId: "797977236399",
-  appId: "1:797977236399:web:98e79cc07e6fcc46"
+  appId: "1:797977236399:web:98e79cc07e6fcc46",
+  measurementId: "G-FJ2SXB6RPL"
 };
 
 firebase.initializeApp(config);
+firebase.analytics();
+
 export default firebase;

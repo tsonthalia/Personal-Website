@@ -5,6 +5,7 @@ import "../styles/Tabs.css";
 import {CardColumns, Card, Button} from "react-bootstrap";
 
 class Tutorials extends Component {
+
   constructor(props) {
     super(props);
 
@@ -14,8 +15,8 @@ class Tutorials extends Component {
       cards: [],
     }
 
-    let self = this;
     var db = firebase.firestore();
+    let self = this;
 
     db.collection("tutorials").orderBy("date", "desc").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -33,19 +34,23 @@ class Tutorials extends Component {
 
             self.state.cards.push(<Card key={doc.data().name} bg="light" border="dark" className="text-center card">
                                     <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
-                                    <Card.Img variant="top" src={doc.data().url} />
                                     <Card.Body>
                                       <Card.Text className='cardText'>{doc.data().description}</Card.Text>
                                     </Card.Body>
                                     <Card.Footer className="text-muted">
                                       {newKeys.map((key, index) => (
-                                          <Button variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}}>{key}</Button>
+                                          <Button key={index} variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}} onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
                                       ))}
                                     </Card.Footer>
                                   </Card>);
         });
         self.setState({cards: self.state.cards});
     });
+  }
+
+  logClick(key, name) {
+    const defaultAnalytics = firebase.analytics();
+    defaultAnalytics.logEvent(key + " - " + name);
   }
 
   render() {
