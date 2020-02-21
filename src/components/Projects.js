@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./firebase.js";
-import "../styles/Tabs.css";
+import "../styles/Main.css";
 
 import {CardColumns, Card, Button} from "react-bootstrap";
 
@@ -36,7 +36,7 @@ class Projects extends Component {
                                     </Card.Body>
                                     <Card.Footer className="text-muted">
                                       {newKeys.map((key, index) => (
-                                          <Button key={index} variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}} onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
+                                          <Button key={index} className='cardButton' variant="primary" href={doc.data()[key]} target="_blank" onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
                                       ))}
                                     </Card.Footer>
                                   </Card>);

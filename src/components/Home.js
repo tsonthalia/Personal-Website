@@ -3,7 +3,7 @@ import firebase from './firebase.js';
 import { SocialIcon } from 'react-social-icons';
 import {CardColumns, Card, Button} from "react-bootstrap";
 
-import '../styles/Home.css';
+import '../styles/Main.css';
 
 // import Particles from 'react-particles-js';
 // const particlesOptions = {
@@ -137,7 +137,7 @@ class Home extends Component {
                                       </Card.Body>
                                       <Card.Footer className="text-muted">
                                         {newKeys.map((key, index) => (
-                                            <Button variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}} onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
+                                            <Button key={index} className='cardButton' variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}} onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
                                         ))}
                                       </Card.Footer>
                                     </Card>);
@@ -172,7 +172,7 @@ class Home extends Component {
                                       </Card.Body>
                                       <Card.Footer className="text-muted">
                                         {newKeys.map((key, index) => (
-                                            <Button variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}} onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
+                                            <Button key={index} className='cardButton' variant="primary" href={doc.data()[key]} target="_blank" style={{marginLeft: 0.5+"vw", marginRight: 0.5+"vw"}} onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
                                         ))}
                                       </Card.Footer>
                                     </Card>);
@@ -194,19 +194,20 @@ class Home extends Component {
   render() {
     if (this.state.imageURL !== "" && this.state.aboutMeURL !== "") {
       return (
-        <div>
+        <div id="home">
           <div className="header">
-
-            <div className="personalPicDiv">
-              <img id="personalPic" alt="" src={this.state.personalPicURL}></img>
-            </div>
-            <div className="basicInfo">
-              <h1>Tanay Sonthalia</h1>
-              <h3>Developer • Engineer • Tinkerer</h3>
-              <SocialIcon url="https://github.com/tsonthalia" bgColor="#000000" target="_blank" onClick={() => this.logClick("Social", "GitHub")}/>
-              <SocialIcon url="https://www.linkedin.com/in/tanaysonthalia" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "LinkedIn")}/>
-              <SocialIcon url="https://twitter.com/SonthaliaTanay" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "Twitter")}/>
-              <SocialIcon url="https://www.instagram.com/tanay.sonthalia/?hl=en" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "Instagram")}/>
+            <div className="insideHeader">
+              <div className="personalPicDiv">
+                <img id="personalPic" alt="" src={this.state.personalPicURL}></img>
+              </div>
+              <div className="basicInfo">
+                <h1>Tanay Sonthalia</h1>
+                <h3>Developer • Engineer • Tinkerer</h3>
+                <SocialIcon url="https://github.com/tsonthalia" bgColor="#000000" target="_blank" onClick={() => this.logClick("Social", "GitHub")}/>
+                <SocialIcon url="https://www.linkedin.com/in/tanaysonthalia" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "LinkedIn")}/>
+                <SocialIcon url="https://twitter.com/SonthaliaTanay" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "Twitter")}/>
+                <SocialIcon url="https://www.instagram.com/tanay.sonthalia/?hl=en" target="_blank" style={{marginLeft: 1+"vw"}} onClick={() => this.logClick("Social", "Instagram")}/>
+              </div>
             </div>
           </div>
 
@@ -236,7 +237,10 @@ class Home extends Component {
                   card
               ))}
             </CardColumns>
-            <footer style={{textAlign: "center"}}>Copyright &copy; 2020 Tanay Sonthalia</footer>
+          </div>
+
+          <div className="inverted">
+            <footer>Copyright &copy; 2020 Tanay Sonthalia</footer>
           </div>
         </div>
       );

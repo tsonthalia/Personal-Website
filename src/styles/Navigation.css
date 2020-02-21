@@ -1,4 +1,17 @@
 .navbar,
 .navbar-default {
-    background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%) !important; /* override background image gradient w/ flat color */
+  background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%) !important; /* override background image gradient w/ flat color */
+  padding-left: 2vw !important;
+  padding-right: 2vw !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.navbar-collapse {
+  background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%) !important; /* override background image gradient w/ flat color */
+  margin-left: auto !important;
+  margin-left: -2vw !important;
+  margin-right: -2vw !important;
+  padding-left: 2vw !important;
+  padding-right: 2vw !important;
 }

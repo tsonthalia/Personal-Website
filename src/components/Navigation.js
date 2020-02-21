@@ -19,6 +19,7 @@ class Navigation extends Component {
 
     this.state = {
       resume: '',
+      navExpanded: false,
     };
 
     // Get a reference to the storage service, which is used to create references in your storage bucket
@@ -54,23 +55,32 @@ class Navigation extends Component {
   }
 
   logClick() {
+    this.setState({ navExpanded: !this.state.navExpanded });
     const defaultAnalytics = firebase.analytics();
     defaultAnalytics.logEvent("Open - Resume");
+  }
+
+  setNavExpanded(expanded) {
+    this.setState({ navExpanded: !this.state.navExpanded });
+  }
+
+  closeNav() {
+    this.setState({ navExpanded: false });
   }
 
   render() {
     return (
       <HashRouter>
-        <Navbar bg="light" expand="lg" fixed="top" style={{height: window.innerHeight*.08}}>
+        <Navbar bg="light" expand="lg" fixed="top" style={{height: window.innerHeight*.08}} onToggle={() => {this.setNavExpanded()}} expanded={this.state.navExpanded}>
           <Navbar.Brand href="#/">Tanay Sonthalia</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav navbar-fixed">
             <Nav className="ml-auto">
-              <Nav.Link href="#/">Home</Nav.Link>
-              <Nav.Link href="#projects">Projects</Nav.Link>
-              <Nav.Link href="#communityservice">Community Service</Nav.Link>
-              <Nav.Link href="#tutorials">Tutorials</Nav.Link>
-              <Nav.Link href={this.state.resume} target="_blank" onClick={this.logClick}>Resume</Nav.Link>
+              <Nav.Link href="#/" onClick={() => {this.closeNav()}}>Home</Nav.Link>
+              <Nav.Link href="#projects" onClick={() => {this.closeNav()}}>Projects</Nav.Link>
+              <Nav.Link href="#communityservice" onClick={() => {this.closeNav()}}>Community Service</Nav.Link>
+              <Nav.Link href="#tutorials" onClick={() => {this.closeNav()}}>Tutorials</Nav.Link>
+              <Nav.Link href={this.state.resume} target="_blank" onClick={() => {this.logClick()}}>Resume</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

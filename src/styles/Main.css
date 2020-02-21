@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+
+/* NOTE: ALL */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  font-family: 'Livvic', sans-serif;
+}
+
+.cardHeader {
+  font-weight: bold;
+}
+
+.cardText {
+  font-size: 1.3vw;
+}
+
+.cardButton {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  margin-bottom: 0.5vw;
+  margin-top: 0.5vw;
+}
+
+footer {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.5vw;
+  text-align: center;
+  padding-bottom: 1vh;
+}
+
+/* NOTE:  HOME.JS*/
+
+.header {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Teko', sans-serif;
+}
+
+.section {
+  width: 100vw;
+  min-height: 92vh;
+  font-family: 'Teko', sans-serif;
+  position: relative;
+  padding-left: 3vw;
+  padding-right: 1vw;
+}
+
+.section h1 {
+  font-size: 10vh;
+  padding-top: 3vh;
+}
+
+.inverted {
+  background-color: #47AEE3;
+}
+
+.leftCol {
+  display: inline-block;
+  width: 40vw;
+}
+
+.rightCol {
+  display: inline;
+}
+
+/* .particles {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+} */
+
+#personalPic {
+  width: 70vh;
+  height: 70vh;
+  max-width: 40vw;
+  max-height: 40vw;
+  margin-left: 11vh;
+  margin-top: 19vh;
+  border-radius: 50%;
+}
+
+.basicInfo {
+  position: absolute;
+  vertical-align: middle;
+  top: 50vh;
+  transform: translate(0%, -50%);
+  margin-left: 50vw;
+  text-align: center;
+}
+
+.basicInfo h1 {
+  font-size: 10vw;
+}
+
+.basicInfo h3 {
+  font-size: 5vh;
+  margin-top: -3vh;
+}
+
+.aboutMe {
+  color: white;
+}
+
+.aboutMe p {
+  font-size: 3vh;
+  font-family: 'Livvic', sans-serif;
+}
+
+#aboutMePic {
+  float: right;
+  width: 46vw;
+  margin-right: 7vw;
+}
+
+.favoriteProjects h1 {
+  color: white;
+}
+
+/* NOTE: TABS (PROJECTS.JS, COMMUNITYSERVICE.JS, TUTORIALS.JS) */
+
+.page {
+  margin-right: 8vh;
+  margin-left: 8vh;
+  margin-top: 10vh;
+  min-height: 100vh;
+  position: relative;
+}
+
+.pageTitle {
+  font-family: 'Teko', sans-serif;
+  font-size: 7vw;
+}
+
+/* NOTE: MOBILE FRIENDLY EXCEPTIONS */
+@media only screen and (max-height: 600px) and (min-width: 1100px) {
+  #aboutMePic {
+    float: right;
+    height: 70vh;
+    width: auto;
+    margin-right: 7vw;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header {
+    height: auto;
+    padding-bottom: 5vh;
+    min-height: 92vh;
+    display: block;
+    overflow: auto;
+  }
+
+  .section {
+    padding-right: 3vw;
+    min-height: 0;
+  }
+
+  .section h1 {
+    font-size: 15vw;
+    padding-top: 3vh;
+  }
+
+  #personalPic {
+    width: 80vw;
+    height: 80vw;
+    max-width: 50vh;
+    max-height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 50%;
+    margin-top: 15vh;
+  }
+
+  .basicInfo {
+    position: static;
+    vertical-align: inherit;
+    top: 0;
+    transform: translate(0%, 0%);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .basicInfo h1 {
+    font-size: 10vh;
+  }
+
+  .leftCol {
+    display: block;
+    width: 94vw;
+  }
+
+  .rightCol {
+    display: block;
+    width: 94vw;
+  }
+
+  .aboutMe p {
+    font-size: 3vw;
+  }
+
+  #aboutMePic {
+    float: none;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 5vw;
+    margin-right: 0vw;
+  }
+
+  .card-columns {
+    -webkit-column-count: 2 !important;
+    -moz-column-count: 2 !important;
+    column-count: 2 !important;
+  }
+
+  .cardText {
+    font-size: 2.5vw !important;
+  }
+
+  footer {
+    font-size: 4vw !important;
+  }
+
+  .page {
+    margin-right: 3vw !important;
+    margin-left: 3vw;
+    margin-top: 10vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .aboutMe p {
+    font-size: 5vw;
+  }
+
+  .card-columns {
+    -webkit-column-count: 1 !important;
+    -moz-column-count: 1 !important;
+    column-count: 1 !important;
+  }
+
+  .cardText {
+    font-size: 4vw !important;
+  }
+}
