@@ -4,14 +4,15 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "firebase": "^7.9.0",
+    "firebase": "^7.20.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
     "react-particles-js": "^2.7.1",
+    "react-pdf": "^5.0.0",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.0"
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",

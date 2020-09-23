@@ -56,11 +56,10 @@ class Projects extends Component {
       <div className="page">
         <h1 className="pageTitle">Projects</h1>
         <CardColumns>
-          {this.state.cards.map((card, index) => (
+          {this.state.cards.map((card) => (
               card
           ))}
         </CardColumns>
-        <footer style={{textAlign: "center"}}>Copyright &copy; 2020 Tanay Sonthalia</footer>
       </div>
     );
   }

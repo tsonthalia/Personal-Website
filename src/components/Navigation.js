@@ -4,6 +4,7 @@ import {Navbar, Nav} from "react-bootstrap";
 
 import Home from "./Home";
 import Projects from "./Projects";
+import Resume from "./Resume";
 // import Programming from "./Programming";
 // import Engineering from "./Engineering";
 import CommunityService from "./CommunityService";
@@ -30,7 +31,7 @@ class Navigation extends Component {
 
     let self = this;
 
-    storageRef.child("Tanay Sonthalia Resume.pdf").getDownloadURL().then(function(url) {
+    storageRef.child("resume.pdf").getDownloadURL().then(function(url) {
       self.setState({resume: url});
     }).catch(function(error) {
       // eslint-disable-next-line
@@ -80,7 +81,7 @@ class Navigation extends Component {
               <Nav.Link href="#projects" onClick={() => {this.closeNav()}}>Projects</Nav.Link>
               <Nav.Link href="#communityservice" onClick={() => {this.closeNav()}}>Community Service</Nav.Link>
               <Nav.Link href="#tutorials" onClick={() => {this.closeNav()}}>Tutorials</Nav.Link>
-              <Nav.Link href={this.state.resume} target="_blank" onClick={() => {this.logClick()}}>Resume</Nav.Link>
+              <Nav.Link href="#resume" onClick={() => {this.closeNav()}}>Resume</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -89,6 +90,11 @@ class Navigation extends Component {
         <Route path="/projects" component={Projects}/>
         <Route path="/communityservice" component={CommunityService}/>
         <Route path="/tutorials" component={Tutorials}/>
+        <Route path="/resume" component={Resume}/>
+
+        <div>
+          <footer>Copyright &copy; 2020 Tanay Sonthalia</footer>
+        </div>
       </HashRouter>
     );
   }

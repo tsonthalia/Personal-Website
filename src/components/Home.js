@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from './firebase.js';
 import { SocialIcon } from 'react-social-icons';
-import {CardColumns, Card, Button} from "react-bootstrap";
+import {CardColumns, Card, Button, Form} from "react-bootstrap";
 
 import '../styles/Main.css';
 
@@ -54,6 +54,10 @@ class Home extends Component {
       aboutMeURL: "",
       currentProjects: [],
       favoriteProjects: [],
+      contactName: "",
+      contactEmail: "",
+      contactSubject: "",
+      contactMessage: "",
     }
 
     this.loadImages();
@@ -189,6 +193,27 @@ class Home extends Component {
     defaultAnalytics.logEvent(key + " - " + name);
   }
 
+  handleChange = event => {
+    this.setState({[event.target.name]: event.target.value});
+  }
+
+  submitEmail = event => {
+    let { contactName, contactEmail, contactSubject, contactMessage } = this.state;
+    db.collection('emails').add({
+      to: "tsonthalia@gmail.com",
+      from: contactEmail,
+      name: contactName,
+      message: {
+        subject: contactSubject,
+        text: contactMessage,
+      }
+    }).then(() => {
+      console.log("Success");
+    })
+
+    event.preventDefault();
+  }
+
   //<Particles className="particles" params={particlesOptions}/>
 
   render() {
@@ -213,18 +238,20 @@ class Home extends Component {
 
           <div className="section inverted aboutMe">
             <h1>About Me</h1>
-            <div className="leftCol">
-              <p>My name is Tanay Sonthalia and I am currently a Senior at Mountain View High School. In my free time, I work on a lot of different projects by combining programming and engineering. You can check out some of them in my Programming or Engineering page. I also teach different classes at OracleOpenWorld, CoderDojo, TechLab, and more. Tutorials for those classes can be found in the Tutorials page. In addition to these, I also organize an annual high school hackathon called MVHacks.</p>
-            </div>
-            <div className="rightCol">
-              <img id="aboutMePic" alt="" src={this.state.aboutMeURL}></img>
+            <div className="twoCols">
+              <div className="leftCol">
+                <p>My name is Tanay Sonthalia and I am currently a First-Year Computer Science Major at the Georgia Institute of Technology. In my free time, I work on a lot of different projects by combining programming and engineering. You can check out some of them in my Programming or Engineering page. I also teach different classes at OracleOpenWorld, CoderDojo, TechLab, and more. Tutorials for those classes can be found in the Tutorials page. In addition to these, I also organize an annual high school hackathon called MVHacks.</p>
+              </div>
+              <div className="rightCol">
+                <img id="aboutMePic" alt="" src={this.state.aboutMeURL}></img>
+              </div>
             </div>
           </div>
 
           <div className="section currentProjects">
             <h1>Current Projects</h1>
             <CardColumns>
-              {this.state.currentProjects.map((card, index) => (
+              {this.state.currentProjects.map((card) => (
                   card
               ))}
             </CardColumns>
@@ -233,14 +260,39 @@ class Home extends Component {
           <div className="section inverted favoriteProjects">
             <h1>My Favorite Projects</h1>
             <CardColumns>
-              {this.state.favoriteProjects.map((card, index) => (
+              {this.state.favoriteProjects.map((card) => (
                   card
               ))}
             </CardColumns>
           </div>
 
-          <div className="inverted">
-            <footer>Copyright &copy; 2020 Tanay Sonthalia</footer>
+          <div className="section contact">
+            <h1>Contact</h1>
+            <Form onSubmit={this.submitEmail}>
+              <Form.Group>
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="text" placeholder="John Doe" name="contactName" value={this.state.contactName} onChange={this.handleChange}/>
+              </Form.Group>
+
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email Address</Form.Label>
+                <Form.Control type="email" placeholder="name@example.com" name="contactEmail" value={this.state.contactEmail} onChange={this.handleChange}/>
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Subject</Form.Label>
+                <Form.Control type="text" placeholder="Subject" name="contactSubject" value={this.state.contactSubject} onChange={this.handleChange}/>
+              </Form.Group>
+
+              <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Message</Form.Label>
+                <Form.Control as="textarea" rows="3" placeholder="Message" name="contactMessage" value={this.state.contactMessage} onChange={this.handleChange}/>
+              </Form.Group>
+
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
           </div>
         </div>
       );
