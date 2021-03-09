@@ -208,7 +208,7 @@ class Home extends Component {
         text: contactMessage,
       }
     }).then(() => {
-      console.log("Success");
+      this.setState({contactName: "", contactEmail: "", contactSubject: "", contactMessage: ""})
     })
 
     event.preventDefault();

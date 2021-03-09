@@ -70,6 +70,8 @@ class Navigation extends Component {
   }
 
   render() {
+    const currentYear = new Date().getFullYear();
+
     return (
       <HashRouter>
         <Navbar bg="light" expand="lg" fixed="top" style={{height: window.innerHeight*.08}} onToggle={() => {this.setNavExpanded()}} expanded={this.state.navExpanded}>
@@ -93,7 +95,7 @@ class Navigation extends Component {
         <Route path="/resume" component={Resume}/>
 
         <div>
-          <footer>Copyright &copy; 2020 Tanay Sonthalia</footer>
+          <footer>Copyright &copy; 2020-{currentYear} Tanay Sonthalia</footer>
         </div>
       </HashRouter>
     );
