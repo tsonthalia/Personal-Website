@@ -240,7 +240,13 @@ class Home extends Component {
             <h1>About Me</h1>
             <div className="twoCols">
               <div className="leftCol">
-                <p>My name is Tanay Sonthalia and I am currently a First-Year Computer Science Major at the Georgia Institute of Technology. In my free time, I work on a lot of different projects by combining programming and engineering. You can check out some of them in my Programming or Engineering page. I also teach different classes at OracleOpenWorld, CoderDojo, TechLab, and more. Tutorials for those classes can be found in the Tutorials page. In addition to these, I also organize an annual high school hackathon called MVHacks.</p>
+                <p>
+                  My name is Tanay Sonthalia, and I am currently a Junior majoring in Computer Science at the Georgia Institute of Technology.
+                  My concentrations include Intelligence (Machine Learning and AI) and Information Internetworks.
+                  This past summer, I interned at Ciena as a product management intern, which gave me a terrific high level background of software development.
+                  In my free time, I work on a lot of different projects by combining programming and engineering as shown on my projects page.
+                  Please feel free to contact me through the Contact Me section at the bottom of the page.
+                </p>
               </div>
               <div className="rightCol">
                 <img id="aboutMePic" alt="" src={this.state.aboutMeURL}></img>
