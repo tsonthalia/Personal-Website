@@ -28,18 +28,22 @@ class Projects extends Component {
               }
             }
 
-            self.state.cards.push(<Card key={doc.data().name} bg="light" border="dark" className="text-center card">
-                                    <Card.Header className='cardHeader'>{doc.data().name}</Card.Header>
-                                    <Card.Img variant="top" src={doc.data().url} />
-                                    <Card.Body>
-                                      <Card.Text className='cardText'>{doc.data().description}</Card.Text>
-                                    </Card.Body>
-                                    <Card.Footer className="text-muted">
-                                      {newKeys.map((key, index) => (
-                                          <Button key={index} className='cardButton' variant="primary" href={doc.data()[key]} target="_blank" onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
-                                      ))}
-                                    </Card.Footer>
-                                  </Card>);
+            self.state.cards.push(
+                <Card key={doc.data().name} bg="light" border="dark" className="text-center card">
+                    <Card.Header className='cardHeader'>
+                        <Card.Title>{doc.data().name}</Card.Title>
+                    </Card.Header>
+                    <Card.Img variant="top" src={doc.data().url} />
+                    <Card.Body>
+                      <Card.Text className='cardText'>{doc.data().description}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer className="text-muted">
+                      {newKeys.map((key, index) => (
+                          <Button key={index} className='cardButton' variant="primary" href={doc.data()[key]} target="_blank" onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
+                      ))}
+                    </Card.Footer>
+                  </Card>
+            );
 
         });
         self.setState({cards: self.state.cards});

@@ -5,6 +5,8 @@ import {Navbar, Nav} from "react-bootstrap";
 import Home from "./Home";
 import Projects from "./Projects";
 import Resume from "./Resume";
+import WorkExperience from "./WorkExperience";
+
 // import Programming from "./Programming";
 // import Engineering from "./Engineering";
 import CommunityService from "./CommunityService";
@@ -80,6 +82,7 @@ class Navigation extends Component {
           <Navbar.Collapse id="basic-navbar-nav navbar-fixed">
             <Nav className="ml-auto">
               <Nav.Link href="#/" onClick={() => {this.closeNav()}}>Home</Nav.Link>
+              <Nav.Link href="#workexperience" onClick={() => {this.closeNav()}}>Work Experience</Nav.Link>
               <Nav.Link href="#projects" onClick={() => {this.closeNav()}}>Projects</Nav.Link>
               <Nav.Link href="#communityservice" onClick={() => {this.closeNav()}}>Community Service</Nav.Link>
               <Nav.Link href="#tutorials" onClick={() => {this.closeNav()}}>Tutorials</Nav.Link>
@@ -89,6 +92,7 @@ class Navigation extends Component {
         </Navbar>
 
         <Route exact path="/" component={Home}/>
+        <Route path="/workexperience" component={WorkExperience}/>
         <Route path="/projects" component={Projects}/>
         <Route path="/communityservice" component={CommunityService}/>
         <Route path="/tutorials" component={Tutorials}/>
