@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import firebase from "./firebase.js";
 import "../styles/Main.css";
 
-import {CardColumns, Card, Button} from "react-bootstrap";
+import {Card, Button} from "react-bootstrap";
 
 class WorkExperience extends Component {
     constructor(props) {
@@ -69,11 +69,11 @@ class WorkExperience extends Component {
         return (
             <div className="page">
                 <h1 className="pageTitle">Work Experience</h1>
-                <CardColumns>
+                <div className="projGrid">
                     {this.state.cards.map((card) => (
                         card
                     ))}
-                </CardColumns>
+                </div>
             </div>
         );
     }
