@@ -1,260 +1,315 @@
-@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+/* Personal Website — redesigned Main.css
+ * Generated from the design-system exploration project.
+ * See docs/redesign-handoff/patch.md for what changed and why.
+ */
 
-/* NOTE: ALL */
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Livvic:wght@300;400;500;600;700&display=swap');
 
+/* ---------- TYPE BASELINE ---------- */
 body {
   margin: 0;
-  padding: 0;
+  font-family: 'Livvic', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #212529;
 }
 
-.card {
-  font-family: 'Livvic', sans-serif;
-}
-
-.cardHeader {
-  font-weight: bold;
-}
-
-.cardText {
-  font-size: 1.3vw;
-}
-
-.cardButton {
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
-  margin-bottom: 0.5vw;
-  margin-top: 0.5vw;
-}
-
-footer {
-  font-family: 'Teko', sans-serif;
-  font-size: 1.5vw;
-  text-align: center;
-  padding-bottom: 1vh;
-}
-
-/* NOTE:  HOME.JS*/
-
+/* ---------- HEADER / HERO ---------- */
 .header {
-  width: 100vw;
-  height: 100vh;
-  font-family: 'Teko', sans-serif;
-}
-
-.section {
-  width: 100vw;
-  font-family: 'Teko', sans-serif;
+  width: 100%;
+  min-height: 92vh;
   position: relative;
-  padding-left: 3vw;
-  padding-right: 1vw;
+  padding-top: 8vh;
+  font-family: 'Teko', sans-serif;
 }
 
-.section h1 {
-  font-size: 10vh;
-  padding-top: 3vh;
+.insideHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: calc(92vh - 8vh);
+  padding: 0 4vw;
 }
 
-.inverted {
-  background-color: #47aee3;
-}
-
-.twoCols {
+.personalPicDiv {
   display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 5vh;
+  align-items: center;
+  justify-content: center;
 }
-
-.leftCol {
-  /*display: inline-block;*/
-  /*width: 40vw;*/
-}
-
-.rightCol {
-  /*display: inline;*/
-}
-
-/* .particles {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-} */
 
 #personalPic {
-  width: 70vh;
-  height: 70vh;
-  max-width: 40vw;
-  max-height: 40vw;
-  margin-left: 11vh;
-  margin-top: 19vh;
+  width: clamp(220px, 30vw, 460px);
+  height: clamp(220px, 30vw, 460px);
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .basicInfo {
-  position: absolute;
-  vertical-align: middle;
-  top: 50vh;
-  transform: translate(0%, -50%);
-  margin-left: 50vw;
   text-align: center;
+  padding: 0 1vw;
 }
 
 .basicInfo h1 {
-  font-size: 10vw;
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(56px, 9vw, 132px);
+  line-height: 1.02;
+  margin: 0;
+  font-weight: 500;
 }
 
 .basicInfo h3 {
-  font-size: 5vh;
-  margin-top: -3vh;
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(22px, 3vw, 44px);
+  line-height: 1.1;
+  margin: 8px 0 28px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
 }
 
-.aboutMe {
+/* ---------- SECTIONS ---------- */
+.section {
+  padding: 96px 4vw;
+}
+
+.section h1 {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(40px, 6.5vw, 88px);
+  line-height: 1.02;
+  margin: 0 0 32px;
+  font-weight: 500;
+}
+
+.section.inverted {
+  background-color: #47AEE3;
   color: white;
 }
 
-.aboutMe p {
-  font-size: 3vh;
+.section.inverted h1 {
+  color: white;
+}
+
+/* Section heading row with "See all →" link */
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.sectionHead h1 {
+  margin: 0;
+}
+
+.seeAll {
   font-family: 'Livvic', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #007BFF;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.seeAll:hover {
+  color: #0069D9;
+  text-decoration: underline;
+}
+
+/* ---------- ABOUT ME ---------- */
+.aboutMe .twoCols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.aboutMe .leftCol p,
+.aboutMe p {
+  font-family: 'Livvic', sans-serif;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.55;
+  max-width: 60ch;
+  margin: 0 0 1em;
+  text-wrap: pretty;
+  color: white;
 }
 
 #aboutMePic {
-  float: right;
-  width: 46vw;
-  margin-right: 7vw;
+  width: 100%;
+  border-radius: 12px;
 }
 
-.favoriteProjects h1 {
-  color: white;
+@media (max-width: 900px) {
+  .aboutMe .twoCols {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* NOTE: TABS (PROJECTS.JS, COMMUNITYSERVICE.JS, TUTORIALS.JS) */
-
+/* ---------- PAGE TABS (Projects / Tutorials / etc.) ---------- */
 .page {
-  margin-right: 8vh;
-  margin-left: 8vh;
-  margin-top: 10vh;
+  margin: 12vh 6vw 0;
   min-height: 100vh;
-  position: relative;
+  padding-bottom: 80px;
 }
 
 .pageTitle {
   font-family: 'Teko', sans-serif;
-  font-size: 7vw;
+  font-size: clamp(40px, 6vw, 80px);
+  margin: 0 0 32px;
+  font-weight: 500;
 }
 
-/* NOTE: MOBILE FRIENDLY EXCEPTIONS */
-@media only screen and (max-height: 600px) and (min-width: 1100px) {
-  #aboutMePic {
-    float: right;
-    height: 70vh;
-    width: auto;
-    margin-right: 7vw;
-  }
+/* ---------- UNIFIED GRID (replaces CardColumns) ---------- */
+.projGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
 }
 
-@media only screen and (max-width: 900px) {
-  .header {
-    height: auto;
-    padding-bottom: 5vh;
-    min-height: 92vh;
-    display: block;
-    overflow: auto;
-  }
+/* ---------- CARDS ---------- */
+.card {
+  background: #fff !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .section {
-    padding-right: 3vw;
-    min-height: 0;
-  }
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.10);
+}
 
-  .section h1 {
-    font-size: 15vw;
-    padding-top: 3vh;
+.card .card-img-top,
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: linear-gradient(135deg, #d5ecf9 0%, #f3f7fb 100%);
+}
+
+.card .card-body {
+  padding: 18px 20px 22px;
+}
+
+.cardTitle,
+.card .card-title {
+  font-family: 'Livvic', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #212529;
+}
+
+.cardText,
+.card .card-text {
+  font-family: 'Livvic', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #212529;
+  margin: 0 0 14px;
+}
+
+.cardLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cardLink,
+.cardLinks .btn {
+  display: inline-block !important;
+  font-size: 13px !important;
+  padding: 4px 12px !important;
+  border: 1px solid #DEE2E6 !important;
+  border-radius: 999px !important;
+  color: #212529 !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  font-family: 'Livvic', sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+}
+
+.cardLink:hover,
+.cardLinks .btn:hover {
+  background: #F8F9FA !important;
+  text-decoration: none !important;
+}
+
+/* Suppress the old card-header / card-footer treatment if any are still in JSX */
+.card .card-header,
+.cardHeader {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 18px 20px 0 !important;
+}
+
+.card .card-footer,
+.cardFooter {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 20px 18px !important;
+}
+
+/* ---------- CONTACT FORM ---------- */
+.contact {
+  padding-bottom: 96px;
+}
+
+.contact form {
+  max-width: 720px;
+}
+
+/* ---------- RESUME ---------- */
+.resumeFrame {
+  border: 3px solid #000;
+  width: min(900px, 70vw);
+  margin: 12vh auto 5vh;
+  aspect-ratio: 8.5 / 11;
+  background: #fff;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(16px, 1.5vw, 24px);
+  text-align: center;
+  padding: 28px 0 32px;
+  color: #212529;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- MOBILE LAYOUT ---------- */
+@media (max-width: 900px) {
+  .insideHeader {
+    grid-template-columns: 1fr;
+    padding-top: 6vh;
+    padding-bottom: 4vh;
+    min-height: auto;
   }
 
   #personalPic {
-    width: 80vw;
-    height: 80vw;
-    max-width: 50vh;
-    max-height: 50vh;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-radius: 50%;
-    margin-top: 15vh;
+    width: 60vw;
+    height: 60vw;
+    max-width: 320px;
+    max-height: 320px;
   }
 
-  .basicInfo {
-    position: static;
-    vertical-align: inherit;
-    top: 0;
-    transform: translate(0%, 0%);
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .basicInfo h1 {
-    font-size: 10vh;
-  }
-
-  .leftCol {
-    display: block;
-    width: 94vw;
-  }
-
-  .rightCol {
-    display: block;
-    width: 94vw;
-  }
-
-  .aboutMe p {
-    font-size: 3vw;
-  }
-
-  #aboutMePic {
-    float: none;
-    text-align: center;
-    width: 100%;
-    padding-bottom: 5vw;
-    margin-right: 0vw;
-  }
-
-  .card-columns {
-    -webkit-column-count: 2 !important;
-    -moz-column-count: 2 !important;
-    column-count: 2 !important;
-  }
-
-  .cardText {
-    font-size: 2.5vw !important;
-  }
-
-  footer {
-    font-size: 4vw !important;
-  }
-
-  .page {
-    margin-right: 3vw !important;
-    margin-left: 3vw;
-    margin-top: 10vh;
+  .section {
+    padding: 64px 5vw;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .aboutMe p {
-    font-size: 5vw;
-  }
-
-  .card-columns {
-    -webkit-column-count: 1 !important;
-    -moz-column-count: 1 !important;
-    column-count: 1 !important;
-  }
-
-  .cardText {
-    font-size: 4vw !important;
+@media (max-width: 600px) {
+  .sectionHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
