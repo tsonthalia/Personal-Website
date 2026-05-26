@@ -39,20 +39,18 @@ class WorkExperience extends Component {
                 }
 
                 self.state.cards.push(
-                    <Card key={doc.data().name} bg="light" border="dark" className="text-center card">
-                        <Card.Header className='cardHeader'>
-                            <Card.Title>{doc.data().role} @ {doc.data().name}</Card.Title>
-                            <Card.Subtitle>{doc.data().startDate} - {doc.data().endDate}</Card.Subtitle>
-                        </Card.Header>
+                    <Card key={doc.data().name} className="card">
                         <Card.Img variant="top" src={doc.data().url} />
                         <Card.Body>
+                            <Card.Title className="cardTitle">{doc.data().role} @ {doc.data().name}</Card.Title>
+                            <p style={{fontSize: 13, color: '#6c757d', margin: '0 0 8px', fontFamily: 'Livvic, sans-serif'}}>{doc.data().startDate} - {doc.data().endDate}</p>
                             <Card.Text className='cardText'>{doc.data().description}</Card.Text>
+                            <div className="cardLinks">
+                                {newKeys.map((key, index) => (
+                                    <Button key={index} className='cardLink' variant="link" href={doc.data()[key]} target="_blank" onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
+                                ))}
+                            </div>
                         </Card.Body>
-                        <Card.Footer className="text-muted">
-                            {newKeys.map((key, index) => (
-                                <Button key={index} className='cardButton' variant="primary" href={doc.data()[key]} target="_blank" onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
-                            ))}
-                        </Card.Footer>
                     </Card>
                 );
             });
