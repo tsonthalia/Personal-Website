@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import firebase from "./firebase.js";
 import "../styles/Main.css";
 
-import {CardColumns, Card, Button} from "react-bootstrap";
+import {Card, Button} from "react-bootstrap";
 
 class Tutorials extends Component {
 
@@ -10,8 +10,6 @@ class Tutorials extends Component {
     super(props);
 
     this.state = {
-      data: [],
-      urls: [],
       cards: [],
     }
 
@@ -20,10 +18,6 @@ class Tutorials extends Component {
 
     db.collection("tutorials").orderBy("date", "desc").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            // console.log(doc.data().name);
-            //
-            // console.log(Object.keys(doc.data()));
             var keys = Object.keys(doc.data())
             var newKeys = []
             for (var index in keys) {
@@ -33,19 +27,17 @@ class Tutorials extends Component {
             }
 
             self.state.cards.push(
-                <Card key={doc.data().name} bg="light" border="dark" className="text-center card">
-                    <Card.Header className='cardHeader'>
-                        <Card.Title>{doc.data().name}</Card.Title>
-                    </Card.Header>
+                <Card key={doc.data().name} className="card">
                     <Card.Body>
+                        <Card.Title className="cardTitle">{doc.data().name}</Card.Title>
                         <Card.Text className='cardText'>{doc.data().description}</Card.Text>
+                        <div className="cardLinks">
+                            {newKeys.map((key, index) => (
+                                <Button key={index} className='cardLink' variant="link" href={doc.data()[key]} target="_blank" onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
+                            ))}
+                        </div>
                     </Card.Body>
-                    <Card.Footer className="text-muted">
-                        {newKeys.map((key, index) => (
-                            <Button key={index} className='cardButton' variant="primary" href={doc.data()[key]} target="_blank" onClick={() => self.logClick(key, doc.data().name)}>{key}</Button>
-                        ))}
-                    </Card.Footer>
-                  </Card>
+                </Card>
             );
         });
         self.setState({cards: self.state.cards});
@@ -61,11 +53,9 @@ class Tutorials extends Component {
     return (
       <div className="page">
         <h1 className="pageTitle">Tutorials</h1>
-        <CardColumns>
-          {this.state.cards.map((card) => (
-              card
-          ))}
-        </CardColumns>
+        <div className="projGrid">
+          {this.state.cards}
+        </div>
       </div>
     );
   }
