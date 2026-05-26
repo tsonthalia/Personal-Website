@@ -99,7 +99,7 @@ class Navigation extends Component {
         <Route path="/resume" component={Resume}/>
 
         <div>
-          <footer>Copyright &copy; 2020-{currentYear} Tanay Sonthalia</footer>
+          <footer className="footer">Copyright &copy; 2020-{currentYear} Tanay Sonthalia</footer>
         </div>
       </HashRouter>
     );
